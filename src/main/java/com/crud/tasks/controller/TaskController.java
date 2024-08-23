@@ -18,11 +18,16 @@ public class TaskController {
 
     @GetMapping
     public List<TaskDto> getTasks(){
-        return new ArrayList<>();
+        List<TaskDto> tasks = new ArrayList<>();
+        TaskDto taskDto1 = new TaskDto(2L,"second title", "whatever");
+        TaskDto taskDto2 = new TaskDto(3L, "super title", "whatever whatever");
+        tasks.add(taskDto1);
+        tasks.add(taskDto2);
+        return tasks;
     }
 
-    @GetMapping
-    public TaskDto getTask(Long taskId){
+    @GetMapping(value = "{taskId}")
+    public TaskDto getTask(@PathVariable Long taskId){
         return new TaskDto(1L,"test","i will be programmer");
     }
 
