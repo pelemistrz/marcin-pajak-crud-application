@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/v1/tasks")
@@ -34,8 +35,9 @@ public class TaskController {
         return ResponseEntity.ok(tasKMapper.mapToTaskDto(service.getTask(taskId)));
     }
 
-    @DeleteMapping(value = "taskId")
-    public ResponseEntity<Void> deleteTask(Long taskId){
+    @DeleteMapping(value = "{taskId}")
+    public ResponseEntity<Void> deleteTask(@PathVariable Long taskId){
+        service.deleteTaskById(taskId);
         return ResponseEntity.ok().build();
     }
 
