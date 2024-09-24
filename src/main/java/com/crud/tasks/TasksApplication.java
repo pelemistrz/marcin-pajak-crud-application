@@ -11,9 +11,7 @@ import java.util.List;
 public class TasksApplication {
 
     public static void main(String[] args) {
-//        Integer[] values = {3,1,1,5,6,4};
-//        List<Integer> arr = Arrays.asList(values);
-//        System.out.println(Sort.sort(arr));
+
 
         SpringApplication.run(TasksApplication.class, args);
     }
