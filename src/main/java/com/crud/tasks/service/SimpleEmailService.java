@@ -11,6 +11,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
+import static java.util.Optional.ofNullable;
+
 @Slf4j
 @RequiredArgsConstructor
 @Service
@@ -30,10 +32,7 @@ public class SimpleEmailService {
     private SimpleMailMessage createMailMessege(final Mail mail) {
         SimpleMailMessage mailMessage = new SimpleMailMessage();
         mailMessage.setTo(mail.getMailTo());
-        Optional<String> optMailCc = Optional.ofNullable(mail.getMailToCc());
-        if (optMailCc.isPresent()) {
-            mailMessage.setCc(mail.getMailToCc());
-        }
+        ofNullable(mail.getMailToCc()).ifPresent(mailToCc -> mailMessage.setTo(mailToCc));
         mailMessage.setSubject(mail.getSubject());
         mailMessage.setText(mail.getMessage());
         return mailMessage;

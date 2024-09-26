@@ -3,13 +3,15 @@ package com.crud.tasks.domain;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 
 @Builder
 @Getter
 @AllArgsConstructor
+@RequiredArgsConstructor
 public class Mail {
-    private String mailTo;
+    private final String mailTo;
     private String mailToCc;
-    private String subject;
-    private String message;
+    private final String subject;
+    private final String message;
 }
