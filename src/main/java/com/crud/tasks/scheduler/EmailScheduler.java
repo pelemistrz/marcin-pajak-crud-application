@@ -17,15 +17,17 @@ public class EmailScheduler {
     private final TaskRepository taskRepository;
     private final AdminConfig adminConfig;
 
-    @Scheduled(cron = "0 0 10 * * *")
-//    @Scheduled(fixedDelay = 10000)
+//    @Scheduled(cron = "0 0 10 * * *")
+    @Scheduled(fixedDelay = 10000)
     public void sendEmail() {
         long size = taskRepository.count();
+        String pluralFormTask = size > 1 ? "tasks" : "task";
+
         simpleEmailService.send(
                 new Mail(
                         adminConfig.getAdminMail(),
                         SUBJECT,
-                        "Currently in database you got: "+size+" tasks"
+                        "Currently in database you got: "+size+" "+pluralFormTask
                 )
         );
 
