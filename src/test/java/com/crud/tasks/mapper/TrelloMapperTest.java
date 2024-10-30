@@ -47,6 +47,7 @@ public class TrelloMapperTest {
         assertEquals(trelloLists.get(0).getName(), trelloListDto1.getName());
         assertEquals(trelloLists.get(0).getClass() , TrelloList.class);
         assertEquals(trelloLists.get(0).getId(), listOfTrellosListDto.get(0).getId());
+        assertThrows(IndexOutOfBoundsException.class,()->trelloLists.get(2));
     }
 
     @Test

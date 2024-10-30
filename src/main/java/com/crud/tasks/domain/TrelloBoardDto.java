@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
+@Getter
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
 @AllArgsConstructor

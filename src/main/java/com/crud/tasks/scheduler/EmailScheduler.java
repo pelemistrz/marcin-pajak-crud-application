@@ -7,7 +7,6 @@ import com.crud.tasks.service.SimpleEmailService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 @Component
 @RequiredArgsConstructor
@@ -18,7 +17,6 @@ public class EmailScheduler {
     private final AdminConfig adminConfig;
 
     @Scheduled(cron = "0 0 10 * * *")
-//    @Scheduled(fixedDelay = 10000)
     public void sendEmail() {
         long size = taskRepository.count();
         String pluralFormTask = size > 1 ? "tasks" : "task";
@@ -30,6 +28,5 @@ public class EmailScheduler {
                         "Currently in database you got: "+size+" "+pluralFormTask
                 )
         );
-
     }
 }
