@@ -1,9 +1,0 @@
-1. Aplikacja korzysta z bazy danych MySql.
-2. W projekcie sa używane biblioteki:
-    	1. Spring Framework
-    	2. Lombok
-    	3. JPA
-    	4. Connector to MySql
-    	5. Hibernate
-    	6. Java.util
-3. Aplikacja korzysta z metod: GET, POST, PUT, DELETE
