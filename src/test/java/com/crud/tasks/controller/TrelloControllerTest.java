@@ -37,7 +37,9 @@ class TrelloControllerTest {
         //given
         when(trelloFacade.fetchTrelloBoards()).thenReturn(List.of());
         //when & then
-        mockMvc.perform(MockMvcRequestBuilders.get("/v1/trello/boards").contentType(MediaType.APPLICATION_JSON)).andExpect(MockMvcResultMatchers.status().is(200)).andExpect(MockMvcResultMatchers.jsonPath("$", Matchers.hasSize(0)));
+        mockMvc.perform(MockMvcRequestBuilders.get("/v1/trello/boards").contentType(MediaType.APPLICATION_JSON))
+                .andExpect(MockMvcResultMatchers.status().is(200))
+                .andExpect(MockMvcResultMatchers.jsonPath("$", Matchers.hasSize(0)));
     }
 
 
